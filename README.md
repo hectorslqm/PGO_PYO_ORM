@@ -56,14 +56,11 @@ def dropTable():
 
 def createTable():
     argsDict = {
-        "db_id" : "SERIAL PRIMARY KEY",
+        "id" : "SERIAL PRIMARY KEY",
         "updated_timestamp" : "timestamp default timezone('UTC'::text, CURRENT_TIMESTAMP) NOT NULL",
-        "feature_json" : "CHAR(1000) NULL",
-        "truck_id" : "CHAR(45) NOT NULL",
-        "truck_name": "CHAR(100) NOT NULL",
-        "truck_timestamp" : "timestamp NULL",
-        "truck_longitude" : "CHAR(45) NOT NULL",
-        "truck_latitude" : "CHAR(45) NOT NULL"
+        "location" : "CHAR(45) NOT NULL",
+        "name" : "CHAR(100) NOT NULL",
+        "date" : "timestamp NULL"
     } 
     database.createTable("tableName", argsDict, overWrite = True, showQuery = False) #overWrite will drop a table that match the name of the current table and creates a new one with argsDict Characteristics
     return "table created"
